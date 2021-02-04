@@ -1,0 +1,29 @@
+.acts {
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: larger;
+    &:hover {
+      color: gray;
+    }
+  }
+  .edit-action-name {
+    width: 30%;
+    display: none;
+  }
+  .actionName {
+    cursor: pointer;
+    .editMenu {
+      visibility: hidden;
+    }
+    &:hover {
+      .editMenu {
+        visibility: visible;
+      }
+    }
+  }
+  details {
+    width: 60%;
+  }
+}

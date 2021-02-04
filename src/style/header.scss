@@ -1,0 +1,22 @@
+.header {
+  padding: 5px;
+  margin-bottom: 40px;
+  b {
+    font-size: 110%;
+    font-style: italic;
+  }
+  a {
+    text-decoration: none;
+    padding: 5px;
+    color: brown;
+    &:hover {
+      color: blueviolet;
+    }
+  }
+  #userMenuList {
+    position: absolute;
+    left: 70px;
+    list-style-type: none;
+    visibility: hidden;
+  }
+}

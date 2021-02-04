@@ -1,0 +1,56 @@
+<%- include("header") -%>
+<div class="container acts">
+     <a title="click to see statistics" href="/statistics/<%=project.id%>"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i > <%=project.name%></h3></a> 
+  <% acts.forEach(function(el){ %>
+    <div class="actionName" data-id="<%=el.id%>">
+      <% if(el.start){ %>
+        <span id='time'></span>        
+        <button value="stop" class="btn btn-outline-dark btn-sm toggleAction"><i class="fa fa-pause" aria-hidden="true"></i></button> 
+      <% } else{ %>  
+        <button value="start" class="btn btn-outline-dark btn-sm toggleAction"><i class="fa fa-play" aria-hidden="true"></i></button> 
+      <% } %>  
+      <b><%= el.name %></b> 
+
+      <span class="actionDuration"data-start="<%=el.start%>" data-duration="<%= el.duration %>">
+      </span>
+      <!-- show timer -->
+      <% if(el.start){ %> 
+        <span class="timer" data-start="<%=el.start%>"></span>
+        <%}%>
+      <!--  -->
+      <span class="editMenu">
+        <a title="edit" class="editAction" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        <a title="remove" class="removeAction" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+      </span>
+      <input
+      class="form-control edit-action-name"
+      placeholder="Change name"
+      required
+    />
+    </div>   
+  <% }) %>
+
+  <details class="addProject">
+    <summary>Add new task</summary>
+    <form  text-center" id="addAct">
+      <input name="projectId" hidden="true" type="text" value="<%=project.id%>">
+      <input
+        name="name"
+        class="form-control"
+        placeholder="name"
+        required
+        autofocus
+      />
+      <input
+        name="description"
+        class="form-control"
+        placeholder="description"
+      />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Save
+      </button>
+    </form>
+  </details>
+</div>
+
+<%- include("footer") -%>

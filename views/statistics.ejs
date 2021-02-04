@@ -1,0 +1,63 @@
+<%- include("header") -%>
+<div class="container statistics">
+  <%let projectDate = new Date(project.createdAt).toLocaleDateString("ru",{hour:
+  'numeric',minute: 'numeric', second: 'numeric'})%>
+  <table>
+    <tbody>
+      <tr>
+        <td><b>Project Name </b></td>
+        <td><%=project.name%></td>
+      </tr>
+      <tr>
+        <td><b>Created at </b></td>
+        <td><%=projectDate%></td>
+      </tr>
+      <tr>
+        <td><b>Duration </b></td>
+        <td class="projectDuration">0</td>
+      </tr>
+      <tr>
+        <td><b>Description </b></td>
+        <td><%=project.description%></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <p><b>Tasks statistics</b></p>
+  <% acts.forEach(function(el){ %> <% let date=new
+  Date(el.createdAt).toLocaleDateString("ru",{hour: 'numeric',minute: 'numeric',
+  second: 'numeric'}) %>
+
+  <div>
+    <span class="toggle-action-stat"
+      ><i class="fa fa-hand-o-right" aria-hidden="true"></i> <%=el.name%></span
+    >
+    <table class="action-info">
+      <tbody>
+        <tr>
+          <td><b>Created at </b></td>
+          <td><%=date%></td>
+        </tr>
+        <tr>
+          <td><b>Duration</b></td>
+          <td
+            class="actionDuration durActTime"
+            data-duration="<%=el.duration%>"
+          ></td>
+        </tr>
+        <tr>
+          <td><b>Status </b></td>
+
+          <td><%if(el.start){%> active <%}else{%> passive <%}%></td>
+        </tr>
+        <tr>
+          <td><b>Description </b></td>
+          <td><%=el.description%></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <% }) %>
+</div>
+
+<%- include("footer") -%>

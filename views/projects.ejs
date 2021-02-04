@@ -1,0 +1,47 @@
+<%- include("header") -%>
+<div class="container projects">
+  <h3>Your projects</h3>
+  <% projects.forEach(function(el){ %>
+    <div data-id="<%=el.id%>" class="projectItem">
+  <a title="Click to see details" href="/acts/<%= el.id %>">
+    <i class="fa fa-hand-o-right" aria-hidden="true"></i> 
+    <%= el.name %></a> 
+       <span class="editMenu">
+        <a title="Edit name" class="editProject" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        <a title="Remove" class="removeProject" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+      </span>
+    <br><%= el.description %>
+    <input
+    class="form-control edit-project-name"
+    placeholder="Change name"
+    required
+  />
+  </div>
+  <% }) %>
+
+  <details class="addProject">
+    <summary>Add new project</summary>
+    <form  text-center" id="addProject">
+      <input
+        name="name"
+        class="form-control"
+        placeholder="name"
+        required
+        autofocus
+      />
+      <input
+        name="description"
+        class="form-control"
+        placeholder="description"
+      />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Save
+      </button>
+    </form>
+  </details>
+</div>
+<%- include("footer") -%>
+
+
+
+</form>
